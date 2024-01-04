@@ -1,12 +1,16 @@
 import javax.swing.*;
 
 class ChatController {
-    private ChatGUI gui;
 
-    public ChatController(ChatGUI gui) {
+    private ChatGUI gui;
+    private ChatClient client;
+
+    public ChatController(ChatGUI gui, ChatClient client) {
         this.gui = gui;
+        this.client = client;
         addActionListeners();
         requestUserName();
+        client.connect();
     }
 
     private void requestUserName() {
